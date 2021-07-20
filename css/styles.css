@@ -1,0 +1,452 @@
+body {
+  background-image: url("../img/White-Background-1024x682.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: grid;
+  grid-template-areas:
+  "hd"
+  "mn"
+  "mn"
+  "mn"
+  "ft";
+  grid-template-rows: min-content repeat(3, 1fr) min-content;
+  margin: 0;
+  min-height: 100vh;
+}
+
+figure > img {
+  height: 200px;
+  width: 300px;
+}
+
+footer {
+  background-color: #191970;
+  color: #fff;
+  grid-area: ft;
+  height: min-content;
+}
+
+footer > p {
+  margin: 1em;
+}
+
+form {
+  border: 0.1em solid #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 300px;
+  padding: 1em;
+}
+
+h2 {
+  font: bold 1.5em Copperplate, "Apple Chancery", monospace;
+}
+
+h3 {
+  margin: 0 auto;
+  width: 50%;
+}
+
+/* Set the entire page's scroll behavior to smooth. */
+html {
+  scroll-behavior: smooth;
+}
+
+input[type="submit"] {
+  color: #7fff00;
+  background-color: #006400;
+  font: bold 11px "Lucida Console", Georgia, serif;
+  margin: 0 auto;
+  height: 25px;
+  width: min-content;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  grid-area: mn;
+  justify-content: space-between;
+}
+
+nav {
+  background-color: #191970;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+/* Set an active section's background squares to grow and shrink repeatedly. */
+.active-section::before {
+  animation: fluctuate-size 6s linear 0s infinite alternate;
+}
+
+.active-section::after {
+  animation: fluctuate-size 6s linear 0s infinite alternate;
+}
+
+@keyframes fluctuate-size {
+  0% {
+    height: 0.5em;
+    width: 0.5em;
+  }
+
+  25% {
+    height: 1em;
+    width: 1em;
+  }
+
+  50% {
+    height: 2em;
+    width: 2em;
+  }
+
+  75% {
+    height: 3em;
+    width: 3em;
+  }
+
+  100% {
+    height: 4em;
+    width: 4em;
+  }
+}
+
+.checkbox-input {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.landing-section {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 4em;
+  position: relative;
+  margin: 5em;
+}
+
+/* The first background square for a section goes in the top-left corner. */
+.landing-section::before {
+  background-color: #808080;
+  content: "";
+  height: 2em;
+  left: 0;
+  margin-top: 4em;
+  opacity: 0.75;
+  position: absolute;
+  top: 0;
+  width: 2em;
+  z-index: -1;
+}
+
+/* The second background square for a section goes in the bottom-right corner. */
+.landing-section::after {
+  background-color: #808080;
+  bottom: 0;
+  content: "";
+  height: 2em;
+  margin-top: 4em;
+  opacity: 0.75;
+  position: absolute;
+  right: 0;
+  width: 2em;
+  z-index: -1;
+}
+
+/* Even-numbered sections are skewed to the right edge. */
+.landing-section:nth-of-type(even) > .section-text-content {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+  width: 500px;
+}
+
+/* Odd-numbered sections are skewed to the left edge. */
+.landing-section:nth-of-type(odd) > .section-text-content {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 500px;
+}
+
+.section-text-content > p {
+  font-size: 18px;
+  line-height: 2em;
+}
+
+.text-box-input {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.title-header {
+  font: 3em Copperplate, "Apple Chancery", monospace;
+  grid-area: hd;
+  margin: auto;
+}
+
+#nav-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  list-style-type: none;
+  margin-left: 0;
+  padding: 0;
+}
+
+#nav-list a {
+  color: #fff;
+  font: bold 1em Copperplate, "Apple Chancery", monospace;
+  text-decoration: none;
+}
+
+/* This media query adjusts the CSS for phone-sized browsers. */
+@media(max-width: 600px) {
+  figure {
+    grid-area: fig;
+  }
+
+  figure > img {
+    height: 100px;
+    width: 100px;
+  }
+
+  h2 {
+    font-size: 1em;
+  }
+
+  h3 {
+    font-size: 1em;
+  }
+
+  main {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    grid-area: mn;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .checkbox-input {
+    margin: 0 auto;
+  }
+
+  .landing-section {
+    display: grid;
+    grid-template-areas:
+    "fig"
+    "txt";
+    padding: 3em 0;
+    position: relative;
+    margin: 6em 0;
+    text-align: center;
+    width: min-content;
+  }
+
+  .landing-section::before {
+    background-color: #808080;
+    content: "";
+    height: 2em;
+    left: 0;
+    margin-top: 3em;
+    opacity: 0.75;
+    position: absolute;
+    top: 0;
+    width: 2em;
+    z-index: -1;
+  }
+
+  .landing-section::after {
+    background-color: #808080;
+    bottom: 0;
+    content: "";
+    height: 2em;
+    margin-top: 1em;
+    opacity: 0.75;
+    position: absolute;
+    right: 0;
+    width: 2em;
+    z-index: -1;
+  }
+
+  .landing-section:nth-of-type(even) > .section-text-content {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    grid-area: txt;
+    text-align: center;
+    width: min-content;
+  }
+
+  .landing-section:nth-of-type(odd) > .section-text-content {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    grid-area: txt;
+    text-align: center;
+    width: min-content;
+  }
+
+  .section-text-content > p {
+    font-size: 0.85em;
+    line-height: 2em;
+    width: 75vw;
+  }
+
+  .title-header {
+    font: 1.5em Copperplate, "Apple Chancery", monospace;
+    grid-area: hd;
+    margin: 2em auto;
+    text-align: center;
+  }
+
+  #nav-list {
+    font-size: 0.75em;
+    justify-content: space-around;
+  }
+
+  #section-4 {
+    display: grid;
+    grid-template-areas:
+    "text"
+    "frm";
+  }
+
+  #section-4 > form {
+    align-items: flex-end;
+    font-size: 0.75em;
+    grid-area: frm;
+    margin: 1em auto;
+    padding: 0.25em;
+    width: 235px;
+  }
+
+  #section-4 > .section-text-content {
+    grid-area: text;
+    margin: 0 auto;
+  }
+}
+
+/* This media query adjusts the CSS for tablet-sized browsers. */
+@media(min-width: 601px) and (max-width: 1200px) {
+  figure {
+    grid-area: fig;
+  }
+
+  figure > img {
+    height: 200px;
+    width: 200px;
+  }
+ 
+  h2 {
+    font-size: 1.5em;
+  }
+
+  main {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    grid-area: mn;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .landing-section {
+    display: grid;
+    grid-template-areas:
+    "fig"
+    "txt";
+    padding: 3em 0;
+    position: relative;
+    margin: 6em 0;
+    text-align: center;
+    width: min-content;
+  }
+
+  .landing-section::before {
+    background-color: #808080;
+    content: "";
+    height: 2em;
+    left: 0;
+    margin-top: 3em;
+    opacity: 0.75;
+    position: absolute;
+    top: 0;
+    width: 2em;
+    z-index: -1;
+  }
+
+  .landing-section::after {
+    background-color: #808080;
+    bottom: 0;
+    content: "";
+    height: 2em;
+    margin-top: 1em;
+    opacity: 0.75;
+    position: absolute;
+    right: 0;
+    width: 2em;
+    z-index: -1;
+  }
+
+  .landing-section:nth-of-type(even) > .section-text-content {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    grid-area: txt;
+    text-align: center;
+    width: min-content;
+  }
+
+  .landing-section:nth-of-type(odd) > .section-text-content {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    grid-area: txt;
+    text-align: center;
+    width: min-content;
+  }
+
+  .section-text-content > p {
+    font-size: 18px;
+    line-height: 2em;
+    width: 75vw;
+  }
+
+  .title-header {
+    font: 2em Copperplate, "Apple Chancery", monospace;
+    grid-area: hd;
+    margin: 2em auto;
+    text-align: center;
+  }
+
+  #nav-list a {
+    font-size: 1em;
+  }
+
+  #section-4 {
+    display: grid;
+    grid-template-areas:
+    "text"
+    "frm";
+  }
+
+  #section-4 > form {
+    grid-area: frm;
+    margin: 1em auto;
+    width: 255px;
+  }
+
+  #section-4 > .section-text-content {
+    grid-area: text;
+  }
+}
